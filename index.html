@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="LegioCert Pro – Gestión profesional de tratamientos antilegionella">
+  <meta name="theme-color" content="#0A2342">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LegioCert">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>LegioCert Pro</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0A2342;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px;
+      transition: opacity 0.4s ease;
+    }
+    #splash.fade-out { opacity: 0; pointer-events: none; }
+    .splash-logo {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #00BCD4, #1565C0);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 28px; color: white;
+    }
+    .splash-title { font-size: 28px; font-weight: 900; color: white; }
+    .splash-title span { color: #00BCD4; }
+    .splash-sub { font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
+    .splash-spinner {
+      width: 36px; height: 36px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #00BCD4;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <div class="splash-logo">LC</div>
+    <div>
+      <div class="splash-title">Legio<span>Cert</span> Pro</div>
+      <div class="splash-sub">Duarte Conection</div>
+    </div>
+    <div class="splash-spinner"></div>
+  </div>
+
+  <div id="root"></div>
+
+  <script src="./config.js"></script>
+  <script src="./db.js"></script>
+  <script src="./gps.js"></script>
+  <script src="./firma.js"></script>
+  <script src="./fotos.js"></script>
+  <script src="./calculadora.js"></script>
+  <script src="./clientes.js"></script>
+  <script src="./instalaciones.js"></script>
+  <script src="./legionella.js"></script>
+  <script src="./pdf.js"></script>
+  <script src="./historial.js"></script>
+  <script src="./dashboard.js"></script>
+  <script src="./agenda.js"></script>
+  <script src="./productos.js"></script>
+  <script src="./app.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash');
+        if (splash) {
+          splash.classList.add('fade-out');
+          setTimeout(() => splash.remove(), 400);
+        }
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
